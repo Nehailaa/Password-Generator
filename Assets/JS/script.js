@@ -1,50 +1,63 @@
-const characterAmountRange = document.getElementById('characterAmountRange')
-const characterAmountNumber = document.getElementById('characterAmountNumber')
-const includeUppercaseElement = document.getElementById('includeUpperCase')
-const includeNumbersElement = document.getElementById('includeNumbers')
-const includeSymbolsElement = document.getElementById('includeSymbols')
-const form = document.getElementById('passwordGenerator')
-const passwordDisplay = document.getElementById('passwordDisplay')
-const UPPERCASE_CHAR_CODES = arrayFromLowHigh(65, 90)
-const LOWERCASE_CHAR_CODES = arrayFromLowHigh(97, 122)
-const NUMBER_CHAR_CODES = arrayFromLowHigh(48, 57)
-const SYMBOL_CHAR_CODES = arrayFromLowHigh(33, 47).concat(
-  arrayFromLowHigh(58, 64)
+let amountRange = document.getElementById('amountRange')
+let amountNumbers = document.getElementById('amountNumbers')
+let uppercaseElement = document.getElementById('uppercase')
+let numbersElement = document.getElementById('numbers')
+let symbolsElement = document.getElementById('symbols')
+let form = document.getElementById('generatorForPassword')
+let passwordShow = document.getElementById('passwordShow')
+
+let UPPERCASES_CHAR_CODES = arrayFromLowToHigh(65, 90)
+let LOWERCASES_CHAR_CODES = arrayFromLowToHigh(97, 122)
+let NUMBERS_CHAR_CODES = arrayFromLowToHigh(48, 57)
+let SYMBOLS_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
+  arrayFromLowToHigh(58, 64)
 ).concat(
-  arrayFromLowHigh(91, 96)
+  arrayFromLowToHigh(91, 96)
 ).concat(
-  arrayFromLowHigh(123,126)
+  arrayFromLowToHigh(123, 126)
 )
 
 
-characterAmountNumber.addEventListener('input' , syncCharacterAmount)
-characterAmountRange.addEventListener('input' , syncCharacterAmount)
+amountNumbers.addEventListener('input', syncCharacterAmount)
+amountRange.addEventListener('input', syncCharacterAmount)
 
-form.addEventListener('submit' , e => {
+form.addEventListener('submit', e => {
   e.preventDefault()
-  const characterAmount = characterAmountNumber.value
-  const includeUppercase = includeUppercaseElement.checked
-  const includeNumbes = includeNumbersElement.checked
-  const includeSymbols = includeSymbolsElement.checked
-  const password = generatePassword(characterAmount, includeUppercase, includeNumbes, includeSymbols)
-  passwordDisplay.innerText = password
+  let characterAmount = amountNumbers.value
+  let uppercase = uppercaseElement.checked
+  let includeNumbes = numbersElement.checked
+  let symbols = symbolsElement.checked
+  let password = generatePassword(characterAmount, uppercase, includeNumbes, symbols)
+  passwordShow.innerText = password
+
 })
-function generatePassword(characterAmount, includeUpperCase, includeNumbers, includeSymbols) {
-  let charcodes
-  
+
+function generatePassword(characterAmount, uppercase, numbers, symbols) {
+  let charCodes = LOWERCASES_CHAR_CODES
+  if (uppercase) charCodes = charCodes.concat(UPPERCASES_CHAR_CODES)
+  if (symbols) charCodes = charCodes.concat(SYMBOLS_CHAR_CODES)
+  if (numbers) charCodes = charCodes.concat(NUMBERS_CHAR_CODES)
+
+  let passwordCharacters = []
+  for (let i = 0; i < characterAmount; i++) {
+    let characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
+    passwordCharacters.push(String.fromCharCode(characterCode))
+  }
+  return passwordCharacters.join('')
+
 }
 
-function arrayFromLowHigh(low, high) {
-  const array = []
-  for (let i = low; i <= high; i++){
+function arrayFromLowToHigh(low, high) {
+  let array = []
+  for (let i = low; i <= high; i++) {
     array.push(i)
   }
   return array
 }
 
 function syncCharacterAmount(e) {
-  const value = e.target.value
-  characterAmountNumber.value = value
-  characterAmountRange.value = value
+  let value = e.target.value
+  amountNumbers.value = value
+  amountRange.value = value
 }
 

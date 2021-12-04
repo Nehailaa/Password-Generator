@@ -16,29 +16,29 @@
       <h1 class="title">Password Generator</h1>
     </header>
 
-    <div class="card">
-      <div class="card-header">
-        <h2 class="Password-Display" id="passwordDisplay">Generate a Password</h2>
+    <div class="Wrapper-Text-Area">
+      <div class="header">
+        <h2 class="Password-Display-Wrapper" id="passwordShow">Generate a Password</h2>
       </div>
      
-       <form id="passwordGenerator" class="form">
+       <form id="generatorForPassword" class="form">
          <label for="characterAmountNumber">Number of Characters</label>
          
          <div class="character-amount-container">
-         <input type="range" min="1" max="55" value="10" id="characterAmountRange">
-         <input class="number-input" type="number" min="1" max="55" value="10" id="characterAmountRange"> 
+         <input type="range" min="8" max="128" value="10" id="amountNumbers">
+         <input class="input-for-numebrs" type="number" min="8" max="128" value="10" id="amountRange"> 
          </div>
 
          <label for="includeUppercase">Include Uppercase</label>
-         <input type="checkbox" id="includeUppercase">
+         <input type="checkbox" id="uppercase">
 
          <label for="includeNumbers">Include Numbers</label>
-         <input type="checkbox" id="includeNumbers">
+         <input type="checkbox" id="numbers">
 
          <label for="includeSymbols">Include Symbols</label>
-         <input type="checkbox" id="includeSymbols">
+         <input type="checkbox" id="symbols">
 
-         <button type="submit" class="btn">Generate Password</button>
+         <button type="submit" class="BTN">Generate Password</button>
        </form>
 
       </div>

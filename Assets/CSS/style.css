@@ -5,21 +5,21 @@
 }
 
 body {
-  background-color: #333;
-  color: white;
+  background-color: rgb(24, 12, 133);
+  color: rgb(8, 5, 5);
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 95vh;
   margin: 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .wrapper {
-  background-color: red;
+  background-color: rgb(228, 57, 57);
   padding: 3rem;
   border-radius: 1rem;
-  border: 2px solid black;
+  border: 3px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,15 +48,15 @@ label {
   align-items: center;
 }
 
-.number-input {
+.input-for-numebrs {
   width: 4rem;
 }
 
-.Password-Display {
+.Password-Display-Wrapper {
   background-color: white;
   color: black;
   padding: 2rem;
-  border: 1px solid #333;
+  border: 1px solid rgb(26, 24, 24);
   height: 2rem;
   width: auto;
   display: flex;
@@ -65,21 +65,23 @@ label {
   word-break: break-all;
   border-radius: 0.6rem;
 }
-.btn {
+.BTN {
   grid-column: span 2;
-  background-color: transparent;
+  background-color: rgb(241, 222, 189);
   border: 2px solid white;
-  color: white;
-  padding: 0.5rem 1rem;
+  color: rgb(34, 34, 36);
+  padding: 0.5rem 1.2rem;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 1rem;
+  border-radius: 1.2rem;
+  font: 20px;
 }
 
-.btn:hover {
-  background-color: #ffffff33;
+.BTN:hover {
+  background-color: blue;
+  font: 23px;
+  color: aliceblue;
 }
-
 
 
 
