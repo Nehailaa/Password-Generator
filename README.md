@@ -15,7 +15,7 @@ In this projects, the following were used:
 
 - HTML.
 - CSS.
-- JAVASRIPT.
+- JAVASCRIPT.
 
 
 
